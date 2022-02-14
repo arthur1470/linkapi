@@ -1,0 +1,144 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "LinkAPI Challenge Documentation",
+        "description": "This is an integration API",
+        "version": "1.0.0",
+        "contact": {
+            "email": "Arthur.L2@hotmail.com"            
+        }
+    },
+    "paths": {
+        "/integration": {
+            "post": {
+                "tags": ["Integration"],
+                "summary": "Execute the integration between Pipedrive and Bling",
+                "description": "Search in Pipedrive for all oportunities with status won, then send to bling as sales order and insert those sales at the database, aggregated by date and total value.",                
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "429": {
+                        "description": "Too many requisitions on Bling API"
+                    },
+                    "500":{
+                        "description": "Server error."
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Integration"],
+                "summary": "List all sales",
+                "description": "Search the sales previously registered in the database by the integration.",                
+                "responses": {
+                    "200": {
+                        "description": "Success",                                        
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "code": {
+                                                "type": "number"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            },                                            
+                                            "data": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "totalValue": {
+                                                            "type": "number"
+                                                        },
+                                                        "date": {
+                                                            "type": "date"
+                                                        },
+                                                        "deals": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "dealId": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "title": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "client": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "seller": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "companyName": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "wonDate": {
+                                                                        "type": "date"
+                                                                    },
+                                                                    "value": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "clientNumber": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "clientEmail": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error.",                                        
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "code": {
+                                                "type": "number"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            },                                            
+                                            "data": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type":"object"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }  
+                }
+            }
+        }
+    }
+}
