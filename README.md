@@ -1,4 +1,4 @@
-# LinkAPI Desafio Integração 
+# LinkAPI Desafio Integração Pipedrive e Bling
 Este projeto é a resolução do desafio proposto pela LinkAPI.
 
 ## Começando
