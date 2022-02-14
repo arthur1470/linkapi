@@ -5,7 +5,7 @@ Este projeto é a resolução do desafio proposto pela LinkAPI.
 Para executar o projeto, será necessário instalar os seguintes programas:
 
 - [(Obrigatório) Node.js: Necessário para executar o projeto](https://nodejs.org/)
-- [(Opcional) Yarn: Gerênciador de pacotes.](https://classic.yarnpkg.com/en/docs/install#windows-stable)
+- [(Opcional) Yarn: Gerenciador de pacotes.](https://classic.yarnpkg.com/en/docs/install#windows-stable)
 - [(Opcional) Insomnia.](https://insomnia.rest/)
 
 ### Requisitos adicionais
